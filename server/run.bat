@@ -1,0 +1,1 @@
+nodemon --watch dist dist/index.js
