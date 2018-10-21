@@ -9,8 +9,8 @@ export class Board extends React.Component<any, any> {
 
     getCards() {
         const list:any[] = [];
-        for (let i = 0;i < 20;i++){
-            list.push(<Card index={i}/>);
+        for (let i = 0;i < 11;i++){
+            list.push(<Card key={i} index={i}/>);
         }
         return list;
     }
