@@ -1,3 +1,4 @@
+@import "Menu";
 .App > .Dashboard > .Screens {
   > .Board {
     position: absolute;
@@ -5,5 +6,35 @@
     width: 360px;
     background-color: #ff2b55;
     border-radius: 9px;
+    overflow: hidden;
+    box-shadow: 0 20px 100px 0 rgba(0,0,0,0.5);
+    color: #fff;
+
+    > .Title {
+      height: 40px;
+      width: 100%;
+      position: relative;
+      background: rgba(255, 255, 255, 0.1);
+      border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+      text-align: center;
+      line-height: 40px;
+      color: #eee;
+      > span {
+        font-size: 22px;
+        color: #fff;
+      }
+    }
+    > .Grid {
+      height:  calc(100% - 167px);
+      width: 100%;
+      position: relative;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    }
+    > .Bottom {
+      height:  30px;
+      width: 100%;
+      position: relative;
+      background-color: rgba(0, 0, 0, 0.2);
+    }
   }
 }
