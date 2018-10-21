@@ -1,3 +1,5 @@
+import {Screens} from "./Screens/screens";
+
 export class Dashboard extends React.Component<any,any> {
     constructor(props:any) {
         super(props);
@@ -5,7 +7,7 @@ export class Dashboard extends React.Component<any,any> {
 
     render() {
         return (<div className={'Dashboard'}>
-            <div className={'Screens'}></div>
+            <Screens/>
         </div>);
     }
 }

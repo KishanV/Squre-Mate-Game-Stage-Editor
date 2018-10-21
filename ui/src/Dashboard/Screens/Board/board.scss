@@ -1,0 +1,9 @@
+.App > .Dashboard > .Screens {
+  > .Board {
+    position: absolute;
+    height: 640px;
+    width: 360px;
+    background-color: #ff2b55;
+    border-radius: 9px;
+  }
+}
