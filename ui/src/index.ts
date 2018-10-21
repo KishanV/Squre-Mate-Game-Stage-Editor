@@ -1,6 +1,5 @@
-import {StageBoard} from "./StageBoard";
-
+import {Dashboard} from "./Dashboard/dashboard";
 ReactDOM.render(
-    React.createElement(StageBoard),
-    document.body
+    React.createElement(Dashboard),
+    document.body.getElementsByClassName('App')[0]
 );

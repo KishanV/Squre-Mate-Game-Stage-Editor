@@ -1,0 +1,12 @@
+@import "Board/board";
+.App > .Dashboard {
+  >.Screens {
+    position: absolute;
+    height: 640px;
+    width: 360px;
+    left: 50%;
+    margin-left: -170px;
+    top: 50%;
+    margin-top: -320px;
+  }
+}
