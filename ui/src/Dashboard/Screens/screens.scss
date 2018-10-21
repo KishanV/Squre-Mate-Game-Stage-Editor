@@ -1,6 +1,7 @@
 @import "Board/board";
+
 .App > .Dashboard {
-  >.Screens {
+  > .Screens {
     position: absolute;
     height: 640px;
     width: 360px;
