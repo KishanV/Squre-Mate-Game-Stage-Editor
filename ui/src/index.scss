@@ -9,6 +9,7 @@ body {
   margin: 0 0 0 0;
   font-family: "Roboto Condensed";
   font-size: 16px;
+  user-select: none;
   >.App {
     position: absolute;
     width: 100%;
