@@ -43,7 +43,6 @@ export class Server {
             if (extJs != ".js" && extMap != ".js.map") {
                 req.url = req.url + ".js";
             }
-            console.log('uri -> ' + req.url);
             next()
         });
         router.use('', express.static(folderList));

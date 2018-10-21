@@ -9,7 +9,6 @@
     overflow: hidden;
     box-shadow: 0 20px 100px 0 rgba(0,0,0,0.5);
     color: #fff;
-
     > .Title {
       height: 40px;
       width: 100%;
@@ -28,7 +27,7 @@
       height:  calc(100% - 167px);
       width: 100%;
       position: relative;
-      border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+      border-bottom: 1px solid rgba(0, 0, 0, 0.3);
     }
     > .Bottom {
       height:  30px;
