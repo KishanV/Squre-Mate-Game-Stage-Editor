@@ -1,5 +1,3 @@
-import {Menu} from "./Menu";
-
 export class Card extends React.Component<any, any> {
 
     constructor(props: any) {
@@ -12,4 +10,5 @@ export class Card extends React.Component<any, any> {
             </div>
         );
     }
+
 }
