@@ -1,8 +1,8 @@
 import {Board} from "./Board/board";
 
-export class Screens extends React.Component<any,any> {
+export class Screens extends React.Component<any, any> {
 
-    constructor(props:any) {
+    constructor(props: any) {
         super(props);
     }
 

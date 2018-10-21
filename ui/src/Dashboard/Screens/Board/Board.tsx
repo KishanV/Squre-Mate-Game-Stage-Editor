@@ -1,9 +1,18 @@
 import {Menu} from "./Menu";
+import {Card} from "./Card";
 
 export class Board extends React.Component<any, any> {
 
     constructor(props: any) {
         super(props);
+    }
+
+    getCards() {
+        const list:any[] = [];
+        for (let i = 0;i < 11;i++){
+            list.push(<Card key={i} index={i}/>);
+        }
+        return list;
     }
 
     render() {
@@ -15,8 +24,10 @@ export class Board extends React.Component<any, any> {
                     <span> EASY </span>
                     select stage from below
                 </div>
-                <div className={'Grid'}></div>
-                <div className={'Bottom'}></div>
+                <div className={'Grid'}>
+                    {this.getCards()}
+                </div>
+                <div className={'Bottom'}>Developed By Linedeer.</div>
             </div>
         );
     }

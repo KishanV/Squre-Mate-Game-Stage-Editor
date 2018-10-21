@@ -1,4 +1,6 @@
-@import "Menu";
+@import "./Menu";
+@import "./Card";
+
 .App > .Dashboard > .Screens {
   > .Board {
     position: absolute;
@@ -7,9 +9,8 @@
     background-color: #ff2b55;
     border-radius: 9px;
     overflow: hidden;
-    box-shadow: 0 20px 100px 0 rgba(0,0,0,0.5);
+    box-shadow: 0 20px 100px 0 rgba(0, 0, 0, 0.5);
     color: #fff;
-
     > .Title {
       height: 40px;
       width: 100%;
@@ -25,16 +26,24 @@
       }
     }
     > .Grid {
-      height:  calc(100% - 167px);
+      height: calc(100% - 167px);
       width: 100%;
       position: relative;
-      border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+      border-bottom: 1px solid rgba(0, 0, 0, 0.3);
+      overflow-y: auto;
+      box-sizing: border-box;
+      padding-top: 15px;
+      padding-left: 15px;
+      padding-right: 15px;
     }
     > .Bottom {
-      height:  30px;
+      height: 30px;
       width: 100%;
       position: relative;
       background-color: rgba(0, 0, 0, 0.2);
+      text-align: center;
+      line-height: 27px;
+      font-size: 12px;
     }
   }
 }
