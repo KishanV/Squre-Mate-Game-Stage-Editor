@@ -16,7 +16,7 @@ export class Board extends React.Component<any, any> {
                     select stage from below
                 </div>
                 <div className={'Grid'}></div>
-                <div className={'Bottom'}></div>
+                <div className={'Bottom'}>Developed By Linedeer.</div>
             </div>
         );
     }

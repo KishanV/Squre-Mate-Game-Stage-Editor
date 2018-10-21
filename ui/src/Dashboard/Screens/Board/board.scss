@@ -30,10 +30,13 @@
       border-bottom: 1px solid rgba(0, 0, 0, 0.3);
     }
     > .Bottom {
-      height:  30px;
+      height: 30px;
       width: 100%;
       position: relative;
       background-color: rgba(0, 0, 0, 0.2);
+      text-align: center;
+      line-height: 27px;
+      font-size: 12px;
     }
   }
 }
