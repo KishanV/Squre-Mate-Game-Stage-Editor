@@ -1,4 +1,5 @@
 import {Card} from "./Card";
+import React = require("react");
 
 export class Menu extends React.Component<any, any> {
     state: any = {

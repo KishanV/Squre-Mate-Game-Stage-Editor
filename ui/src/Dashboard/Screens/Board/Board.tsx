@@ -1,5 +1,6 @@
 import {Menu} from "./Menu";
 import {Card} from "./Card";
+import React = require("react");
 
 export class Board extends React.Component<any, any> {
 

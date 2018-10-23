@@ -1,3 +1,5 @@
+import React = require("react");
+
 export class Card extends React.Component<any, any> {
 
     constructor(props: any) {

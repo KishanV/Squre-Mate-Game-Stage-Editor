@@ -1,4 +1,5 @@
 import {Board} from "./Board/board";
+import React = require("react");
 
 export class Screens extends React.Component<any, any> {
 
