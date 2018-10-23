@@ -6,7 +6,7 @@ module.exports = {
         inline:true,
         port: 768
     },
-    entry: ['./src/index.ts', './src/index.scss'], //path.join(__dirname, '/src/index.ts'),
+    entry: ['./src/index.tsx', './src/index.scss'], //path.join(__dirname, '/src/index.ts'),
     output: {
         filename: 'app.js'
     },
