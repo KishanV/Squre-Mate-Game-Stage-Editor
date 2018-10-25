@@ -1,4 +1,5 @@
 import {Screens} from "./Screens/screens";
+import React = require("react");
 
 export class Dashboard extends React.Component<any, any> {
     constructor(props: any) {
