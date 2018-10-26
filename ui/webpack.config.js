@@ -6,6 +6,7 @@ module.exports = {
         inline:true,
         port: 768
     },
+    devtool: "inline-source-map",
     entry: ['./src/index.tsx', './src/index.scss'], //path.join(__dirname, '/src/index.ts'),
     output: {
         filename: 'app.js'
@@ -15,7 +16,7 @@ module.exports = {
             {
                 test: /\.tsx?$/,
                 loader: 'ts-loader',
-                exclude: /node_modules/,
+                exclude: /node_modules/
             },
             {
                 test: /\.scss$/,

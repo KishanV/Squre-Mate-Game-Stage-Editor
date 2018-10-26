@@ -1,50 +1,36 @@
-import {Card} from "./Card";
 import React = require("react");
+import {connect} from 'react-redux';
 
-export class Menu extends React.Component<any, any> {
+class MenuCmp extends React.Component<any, any> {
     state: any = {
         Sel: 1
     };
 
     constructor(props: any) {
         super(props);
-        this.selectMenu = this.selectMenu.bind(this);
-    }
-
-    selectMenu(no: number) {
-        this.setState({
-            Sel: 3
-        });
     }
 
     getItemMenu() {
         const list: any[] = [];
         for (let i = 0; i < 4; i++) {
             let str = 'Sel';
-            if (i + 1 == this.state.Sel) {
-
-                list.push(<div className={'Item ' + str} onClick={ event1 => {
-                        this.setState({
-                            Sel: 1 + i
-                        });
+            const num = i+1;
+            if (i + 1 == this.props.selectedMenu) {
+                list.push(<div className={'Item ' + str} key={i} onClick={event1 => {
+                    this.props.setMenu(num);
                 }}>0{i + 1}</div>);
 
             } else {
-
-                list.push(<div className={'Item '} onClick={event1 => {
-                    this.setState({
-                        Sel: 1 + i
-                    });
+                list.push(<div className={'Item '} key={i} onClick={event1 => {
+                    this.props.setMenu(num);
                 }}>0{i + 1}</div>);
-
             }
-
         }
         return list;
-
     }
 
     render() {
+        console.log(this.props)
         return (
             <div className={'Menu'}>
                 <div className={'Holder'}>
@@ -54,3 +40,23 @@ export class Menu extends React.Component<any, any> {
         );
     }
 }
+
+const mapStateToProps = (state: any) => {
+    return {
+        selectedMenu: state.selectedMenu
+    }
+};
+
+const mapDispatchToProps = (dispatch: any, ownProps: any) => ({
+    setMenu: (num: number) => {
+        dispatch({
+            selectedMenu: num,
+            type: 'OKAY'
+        });
+    }
+});
+
+export const Menu: any = connect(
+    mapStateToProps,
+    mapDispatchToProps
+)(MenuCmp);

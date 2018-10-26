@@ -4,3 +4,4 @@ npm-debug.log
 .idea
 *.css.map
 /ui/src/**/*.css
+ui/package-lock.json
