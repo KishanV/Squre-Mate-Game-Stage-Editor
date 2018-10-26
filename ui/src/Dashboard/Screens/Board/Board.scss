@@ -7,10 +7,11 @@
     height: 640px;
     width: 360px;
     background-color: #ff2b55;
-    border-radius: 9px;
+    border-radius: 18px;
     overflow: hidden;
     box-shadow: 0 20px 100px 0 rgba(0, 0, 0, 0.5);
     color: #fff;
+    transform: translate3d(0,0,0);
     > .Title {
       height: 40px;
       width: 100%;

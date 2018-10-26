@@ -8,20 +8,38 @@
     margin-top: 10px;
     position: relative;
     float: left;
-    transition:background-color 300ms;
+    transition: background-color 300ms;
     &:hover {
       background-color: rgba(0, 0, 0, 0.3);
     }
-    >.Stars {
+    &.Sel {
+      background-color: rgba(255, 255, 255, 1);
+      > .Index {
+        color: #000;
+      }
+      > .Stars {
+        > .Fixed, .Given {
+          > .Dot {
+            background-color: rgba(0, 0, 0, 0.2);
+          }
+        }
+        > .Given {
+          > .Dot {
+            background-color: rgba(0, 0, 0, 0.5);
+          }
+        }
+      }
+    }
+    > .Stars {
       position: relative;
       float: left;
       width: 54px;
       height: 20px;
-      >.Fixed, .Given {
+      > .Fixed, .Given {
         position: absolute;
         width: 54px;
         height: 20px;
-        >.Dot {
+        > .Dot {
           position: relative;
           width: 6px;
           height: 6px;
@@ -35,13 +53,13 @@
           }
         }
       }
-      >.Fixed {
-        >.Dot {
-          background-color: rgba(0,0,0,0.2);
+      > .Fixed {
+        > .Dot {
+          background-color: rgba(0, 0, 0, 0.2);
         }
       }
     }
-    >.Index {
+    > .Index {
       position: relative;
       float: left;
       width: 54px;
