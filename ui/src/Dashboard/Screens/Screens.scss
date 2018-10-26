@@ -1,4 +1,5 @@
 @import "Board/Board";
+@import "Board/Editor";
 
 .App > .Dashboard {
   > .Screens {
@@ -9,5 +10,10 @@
     margin-left: -170px;
     top: 50%;
     margin-top: -320px;
+    transition: margin-left 200ms, width 200ms;
+    &.OpenEditor {
+      width: 740px;
+      margin-left: -340px;
+    }
   }
 }

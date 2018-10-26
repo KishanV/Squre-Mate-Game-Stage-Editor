@@ -6,7 +6,10 @@ import {combineReducers, createStore} from "redux";
 
 const reducer = combineReducers({
     selectedMenu:(state = 1, action:any) => {
-        return action.selectedMenu || 1;
+        return action.selectedMenu || state;
+    },
+    selectedStage:(state = 1, action:any) => {
+        return (action.selectedStage === undefined ? state : action.selectedStage);
     }
 });
 

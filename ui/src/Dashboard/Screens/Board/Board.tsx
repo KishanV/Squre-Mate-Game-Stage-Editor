@@ -1,8 +1,9 @@
 import {Menu} from "./Menu";
 import {Card} from "./Card";
 import React = require("react");
+import {connect} from "react-redux";
 
-export class Board extends React.Component<any, any> {
+class BoardCmp extends React.Component<any, any> {
 
     constructor(props: any) {
         super(props);
@@ -11,7 +12,12 @@ export class Board extends React.Component<any, any> {
     getCards() {
         const list:any[] = [];
         for (let i = 0;i < 11;i++){
-            list.push(<Card key={i} index={i}/>);
+            if(this.props.selectedStage === i+1){
+                list.push(<Card key={i} sel={true} index={i+1}/>);
+            } else {
+                list.push(<Card key={i} index={i+1}/>);
+            }
+
         }
         return list;
     }
@@ -33,3 +39,12 @@ export class Board extends React.Component<any, any> {
         );
     }
 }
+
+const mapStateToProps = (state: any) => {
+    return {
+        selectedStage: state.selectedStage
+    }
+};
+export const Board: any = connect(
+    mapStateToProps
+)(BoardCmp);
