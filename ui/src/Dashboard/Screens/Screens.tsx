@@ -1,7 +1,7 @@
 import {Board} from "./Board/board";
 import React = require("react");
 import {connect} from "react-redux";
-import {Editor} from "./Board/Editor";
+import {Editor} from "./Editor/Editor";
 
 class ScreensCmp extends React.Component<any, any> {
 
