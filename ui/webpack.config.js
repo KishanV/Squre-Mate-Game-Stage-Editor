@@ -4,7 +4,7 @@ const path = require('path');
 module.exports = {
     devServer: {
         inline:true,
-        port: 768
+        port: 7680
     },
     devtool: "inline-source-map",
     entry: ['./src/index.tsx', './src/index.scss'], //path.join(__dirname, '/src/index.ts'),
