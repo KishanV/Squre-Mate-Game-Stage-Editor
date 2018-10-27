@@ -24,7 +24,6 @@ export class Editor extends React.Component<any, any> {
 
     render() {
         return (<div className={'Editor'}>
-
             <div className={'Title'}>
                 <div className={'Play'}>
                     <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 48 48">
@@ -37,7 +36,6 @@ export class Editor extends React.Component<any, any> {
                         <path d="M0 0h24v24H0z" fill="none"/>
                         <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z" fill="#ffd210"/>
                     </svg>
-
                 </div>
                 <div className={'Menu'}></div>
             </div>
