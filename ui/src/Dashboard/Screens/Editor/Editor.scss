@@ -22,11 +22,13 @@
     border: 3px solid #ff2b55;
     box-sizing: border-box;
     transform: translate3d(0,0,0);
+
     >.Title {
       position: relative;
       width: 100%;
       float: left;
       height: 80px;
+
       >.Play {
         width: auto;
         height: 30px;
@@ -49,7 +51,37 @@
           cursor: pointer;
         }
       }
+
+      >.MenuIcon {
+        width: auto;
+        height: auto;
+        position: relative;
+        top: 10px;
+        right: 6px;
+        float: right;
+        padding: 5px;
+        transition: all 200ms;
+        > svg {
+          position: relative;
+          top: 0;
+          right: 0;
+          float: right;
+        }
+        &:hover{
+          background-color: #ffffff30;
+          border-radius: 7px;
+          right: 9px;
+          cursor: pointer;
+        }
+      }
+
     }
+
+
+
+
+
+
     > .Boxes {
       width: 354px;
       height: auto;
