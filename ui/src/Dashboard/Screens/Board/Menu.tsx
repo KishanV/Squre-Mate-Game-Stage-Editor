@@ -30,7 +30,6 @@ class MenuCmp extends React.Component<any, any> {
     }
 
     render() {
-        console.log(this.props)
         return (
             <div className={'Menu'}>
                 <div className={'Holder'}>
