@@ -1,3 +1,4 @@
+import './index.scss';
 import {Dashboard} from "./Dashboard/dashboard";
 import ReactDOM = require("react-dom");
 import React = require("react");
@@ -14,16 +15,22 @@ const reducer = combineReducers({
 });
 
 const store = createStore(reducer);
-store.dispatch({
-    selectedMenu: 2,
-    type: 'OKAY'
-});
 
-ReactDOM.render(
-    <Provider store={store}>
-       <Dashboard/>
-    </Provider>,
-    document.body.getElementsByClassName('App')[0]
-);
+window.oncontextmenu = () => {
+    return false;
+}
+
+window.onload = ev => {
+    const appElm = document.createElement('div');
+    appElm.classList.add('App');
+    document.body.appendChild(appElm);
+
+    ReactDOM.render(
+        <Provider store={store}>
+            <Dashboard/>
+        </Provider>,
+        appElm
+    );
+}
 
 

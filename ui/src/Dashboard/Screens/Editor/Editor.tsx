@@ -1,4 +1,5 @@
 import * as React from "react";
+import {Square} from "./Square";
 
 export class Editor extends React.Component<any, any> {
 
@@ -19,6 +20,7 @@ export class Editor extends React.Component<any, any> {
         for (let i = 0; i < 35; i++) {
             list.push(<div className={'Box'} key={i}>
                 <div className={'Border'}></div>
+                <Square/>
             </div>)
         }
         return list;
