@@ -1,6 +1,16 @@
-
 .App > .Dashboard > .Screens > .Editor > .Boxes > .Playground > .Box {
-  >.Square {
-
+  &.Square.Sel {
+    > .Border {
+      opacity: 0.4 !important;
+    }
+  }
+  >.Content {
+    height: 54px;
+    width: 54px;
+    border-radius: 8px;
+    position: relative;
+    float: left;
+    transition: background-color 300ms;
+    background: #ff2b55;
   }
 }

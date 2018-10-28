@@ -7,10 +7,13 @@ import {combineReducers, createStore} from "redux";
 
 const reducer = combineReducers({
     selectedMenu:(state = 1, action:any) => {
-        return action.selectedMenu || state;
+        return (action.selectedMenu === undefined ? state : action.selectedMenu);
     },
     selectedStage:(state = 1, action:any) => {
         return (action.selectedStage === undefined ? state : action.selectedStage);
+    },
+    selectedSquare:(state = 1, action:any) => {
+        return (action.selectedSquare === undefined ? state : action.selectedSquare);
     }
 });
 

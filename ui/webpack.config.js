@@ -12,7 +12,7 @@ module.exports = {
     },
     plugins: [
         new HtmlWebpackPlugin({
-            title: 'Hot Module Replacement'
+            title: 'Square Editor'
         }),
         new webpack.HotModuleReplacementPlugin()
     ],
@@ -33,9 +33,9 @@ module.exports = {
             {
                 test: /\.scss$/,
                 use: [
-                    "style-loader", // creates style nodes from JS strings
-                    "css-loader", // translates CSS into CommonJS
-                    "sass-loader" // compiles Sass to CSS, using Node Sass by default
+                    "style-loader?sourceMap", // creates style nodes from JS strings
+                    "css-loader?sourceMap", // translates CSS into CommonJS
+                    "sass-loader?sourceMap" // compiles Sass to CSS, using Node Sass by default
                 ]
             }
         ]

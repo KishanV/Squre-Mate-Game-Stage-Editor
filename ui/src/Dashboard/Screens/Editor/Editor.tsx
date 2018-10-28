@@ -18,10 +18,7 @@ export class Editor extends React.Component<any, any> {
     getPlaygroundBoxes() {
         const list = [];
         for (let i = 0; i < 35; i++) {
-            list.push(<div className={'Box'} key={i}>
-                <div className={'Border'}></div>
-                <Square/>
-            </div>)
+            list.push(<Square index={i} key={i}/>)
         }
         return list;
     }
@@ -54,5 +51,4 @@ export class Editor extends React.Component<any, any> {
             <div className={'Save'}>Save</div>
         </div>);
     }
-
 }
