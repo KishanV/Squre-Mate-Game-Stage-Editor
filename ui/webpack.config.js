@@ -3,26 +3,36 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const webpack = require('webpack');
 const path = require('path');
+const { resolve } = require('path');
 
 module.exports = {
     devServer: {
-        contentBase: './dist',
-        port: 768,
-        hot: true
+        port:768,
+        hot: true,
+        contentBase: resolve(__dirname, 'src'),
+        publicPath: '/'
     },
     plugins: [
+        new CleanWebpackPlugin(['dist']),
         new HtmlWebpackPlugin({
             title: 'Square Editor'
         }),
         new webpack.HotModuleReplacementPlugin()
     ],
     devtool: "inline-source-map",
-    entry: {
-        app:'./src/index.tsx'
-    }, //path.join(__dirname, '/src/index.ts'),
+    entry: [
+        'webpack/hot/only-dev-server',
+        './src/index.tsx'
+    ],
     output: {
-        filename: 'app.js'
+        filename: '[name].bundle.js',
+        chunkFilename: '[name].bundle.js'
     },
+    optimization: {
+        splitChunks: {
+            chunks: 'all'
+        }
+   },
     module: {
         rules: [
             {
