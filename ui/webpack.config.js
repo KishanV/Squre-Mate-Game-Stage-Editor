@@ -6,9 +6,9 @@ const path = require('path');
 
 module.exports = {
     devServer: {
-        port:7687,
+        port:1001,
         hot: true,
-        contentBase: resolve(__dirname, 'src'),
+        contentBase: path.resolve(__dirname, 'src'),
         publicPath: '/'
     },
     plugins: [
