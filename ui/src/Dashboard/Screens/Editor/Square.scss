@@ -1,7 +1,7 @@
 .App > .Dashboard > .Screens > .Editor > .Boxes > .Playground > .Box {
   &.Square.Sel {
     > .Border {
-      opacity: 0.4 !important;
+      opacity: 0.6;
     }
   }
   >.Content {
@@ -11,6 +11,6 @@
     position: relative;
     float: left;
     transition: background-color 300ms;
-    background: #ff2b55;
+    background: rgb(0, 204, 102);
   }
 }

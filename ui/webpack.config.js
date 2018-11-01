@@ -3,13 +3,12 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const webpack = require('webpack');
 const path = require('path');
-const { resolve } = require('path');
 
 module.exports = {
     devServer: {
-        port:768,
+        port:1001,
         hot: true,
-        contentBase: resolve(__dirname, 'src'),
+        contentBase: path.resolve(__dirname, 'src'),
         publicPath: '/'
     },
     plugins: [
