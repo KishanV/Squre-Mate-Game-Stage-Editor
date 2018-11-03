@@ -6,8 +6,8 @@ import {Provider} from 'react-redux';
 import {combineReducers, createStore} from "redux";
 
 const reducer = combineReducers({
-    selectedMenu:(state = 1, action:any) => {
-        return (action.selectedMenu === undefined ? state : action.selectedMenu);
+    selectedLevel:(state = 1, action:any) => {
+        return (action.selectedLevel === undefined ? state : action.selectedLevel);
     },
     selectedStage:(state = 1, action:any) => {
         return (action.selectedStage === undefined ? state : action.selectedStage);

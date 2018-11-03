@@ -1,10 +1,39 @@
 import * as React from "react";
-import {Square} from "./Square";
+import {Square, SquareData} from "./Square";
+import {connect} from "react-redux";
 
-export class Editor extends React.Component<any, any> {
+export class EditorCmp extends React.Component<any, any> {
+
+    state: {
+        list: SquareData[]
+    } = {
+        list: []
+    };
 
     constructor(props: any) {
         super(props);
+    }
+
+    updateData() {
+        const dataKey = 'StageData:' + this.props.selectedStage + ':' + this.props.selectedLevel;
+        let data = localStorage.getItem(dataKey);
+        if (data == undefined) {
+            localStorage.setItem(dataKey, JSON.stringify([]));
+            data = JSON.parse('[]');
+        } else {
+            data = JSON.parse(data);
+        }
+        this.setState({
+            list: data
+        });
+    }
+
+    componentDidMount() {
+        this.updateData();
+    }
+
+    componentWillReceiveProps() {
+        this.updateData();
     }
 
     getBackgroundBoxes() {
@@ -18,7 +47,11 @@ export class Editor extends React.Component<any, any> {
     getPlaygroundBoxes() {
         const list = [];
         for (let i = 0; i < 35; i++) {
-            list.push(<Square index={i} key={i}/>)
+            let squreData = new SquareData();
+            if (this.state.list[i] !== undefined) {
+                squreData = this.state.list[i];
+            }
+            list.push(<Square squreData={squreData} index={i} key={i}/>);
         }
         return list;
     }
@@ -52,3 +85,14 @@ export class Editor extends React.Component<any, any> {
         </div>);
     }
 }
+
+const mapStateToProps = (state: any) => {
+    return {
+        selectedStage: state.selectedStage,
+        selectedLevel: state.selectedLevel
+    }
+};
+
+export const Editor: any = connect(
+    mapStateToProps
+)(EditorCmp);

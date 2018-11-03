@@ -15,7 +15,7 @@ class MenuCmp extends React.Component<any, any> {
         for (let i = 0; i < 4; i++) {
             let str = 'Sel';
             const num = i+1;
-            if (i + 1 == this.props.selectedMenu) {
+            if (i + 1 == this.props.selectedLevel) {
                 list.push(<div className={'Item ' + str} key={i} onClick={event1 => {
                     this.props.setMenu(num);
                 }}>0{i + 1}</div>);
@@ -42,14 +42,14 @@ class MenuCmp extends React.Component<any, any> {
 
 const mapStateToProps = (state: any) => {
     return {
-        selectedMenu: state.selectedMenu
+        selectedLevel: state.selectedLevel
     }
 };
 
 const mapDispatchToProps = (dispatch: any, ownProps: any) => ({
     setMenu: (num: number) => {
         dispatch({
-            selectedMenu: num,
+            selectedLevel: num,
             type: 'OKAY'
         });
     }
