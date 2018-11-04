@@ -6,7 +6,7 @@ const path = require('path');
 
 module.exports = {
     devServer: {
-        port:8801,
+        port: 8801,
         hot: true,
         contentBase: path.resolve(__dirname, 'src'),
         publicPath: '/'
@@ -49,7 +49,7 @@ module.exports = {
                 },
             },
         },
-   },
+    },
     module: {
         rules: [
             {
@@ -64,6 +64,16 @@ module.exports = {
                     "css-loader?sourceMap", // translates CSS into CommonJS
                     "sass-loader?sourceMap" // compiles Sass to CSS, using Node Sass by default
                 ]
+            },
+            {
+                test: /\.(woff(2)?|ttf|eot|svg)(\?v=\d+\.\d+\.\d+)?$/,
+                use: [{
+                    loader: 'file-loader',
+                    options: {
+                        name: '[name].[ext]',
+                        outputPath: 'fonts/'
+                    }
+                }]
             }
         ]
     },
