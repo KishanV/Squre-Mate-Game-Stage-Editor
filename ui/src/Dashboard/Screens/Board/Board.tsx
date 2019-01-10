@@ -1,5 +1,5 @@
 import {Menu} from "./Menu";
-import {Card} from "./Card";
+import {Card, CardCmp} from "./Card";
 import React = require("react");
 import {connect} from "react-redux";
 
@@ -13,11 +13,10 @@ class BoardCmp extends React.Component<any, any> {
         const list:any[] = [];
         for (let i = 0;i < 11;i++){
             if(this.props.selectedStage === i+1){
-                list.push(<Card key={i} sel={true} index={i+1}/>);
+                list.push(<CardCmp setStage={this.props.setStage} selectedStage={this.props.selectedStage} key={i} selected={true} index={i+1}/>);
             } else {
-                list.push(<Card key={i} index={i+1}/>);
+                list.push(<CardCmp setStage={this.props.setStage} selectedStage={this.props.selectedStage}  key={i}  index={i+1}/>);
             }
-
         }
         return list;
     }
@@ -45,6 +44,18 @@ const mapStateToProps = (state: any) => {
         selectedStage: state.selectedStage
     }
 };
+
+
+const mapDispatchToProps = (dispatch: any, ownProps: any) => ({
+    setStage: (num: number) => {
+        dispatch({
+            selectedStage: num,
+            type: 'OKAY'
+        });
+    }
+});
+
 export const Board: any = connect(
-    mapStateToProps
+    mapStateToProps,
+    mapDispatchToProps
 )(BoardCmp);

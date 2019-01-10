@@ -24,8 +24,8 @@ module.exports = {
         './src/index.tsx'
     ],
     output: {
-        filename: '[name].[hash].bundle.js',
-        chunkFilename: '[name].[chunkhash].bundle.js'
+        filename: '[name].js',
+        chunkFilename: '[name].js'
     },
     optimization: {
         splitChunks: {
@@ -43,7 +43,7 @@ module.exports = {
                 src: {
                     test: /[\\/]src[\\/]/,
                     name(module) {
-                        const src = module.context.split('\\ui')[1].split('\\').join('.').substr(1);
+                        const src = module.context.split('/ui')[1].split('/').join('.').substr(1);
                         return `${src}`;
                     },
                 },

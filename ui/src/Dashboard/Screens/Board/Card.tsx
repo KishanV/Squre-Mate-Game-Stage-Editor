@@ -1,7 +1,7 @@
 import React = require("react");
 import {connect} from "react-redux";
 
-class CardCmp extends React.Component<any, any> {
+export class CardCmp extends React.Component<{ key:number, index:number, selectedStage:number, selected?:boolean, setStage:(stageIndex:number) => void }, any> {
 
     constructor(props: any) {
         super(props);
@@ -9,7 +9,7 @@ class CardCmp extends React.Component<any, any> {
     }
 
     onClick() {
-        if(this.props.selectedStage === this.props.index){
+        if (this.props.selectedStage === this.props.index) {
             this.props.setStage(0);
         } else {
             this.props.setStage(this.props.index);
@@ -18,7 +18,7 @@ class CardCmp extends React.Component<any, any> {
 
     render() {
         return (
-            <div onClick={this.onClick} className={'Card ' + (this.props.sel === true ? 'Sel' : '')}>
+            <div onClick={this.onClick} className={'Card ' + (this.props.selected === true ? 'Sel' : '')}>
                 <div className={'Index'}>{this.props.index}</div>
                 <div className={'Stars'}>
                     <div className={'Fixed'}>
