@@ -5,7 +5,8 @@
     "sourceMap": true,
     "strict":true,
     "jsx": "react",
-    "moduleResolution": "node"
+    "moduleResolution": "node",
+    "allowJs": true
   },
   "include": [
     "src/**/*.ts",

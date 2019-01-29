@@ -3,18 +3,16 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const webpack = require('webpack');
 const path = require('path');
-
+const { CheckerPlugin } = require('awesome-typescript-loader');
 module.exports = {
-    node: {
-        fs: 'empty'
-    },
     devServer: {
-        port: 8801,
+        port: 3000,
         hot: true,
         contentBase: path.resolve(__dirname, 'src'),
         publicPath: '/'
     },
     plugins: [
+        new CheckerPlugin(),
         new CleanWebpackPlugin(['dist']),
         new HtmlWebpackPlugin({
             title: 'Square Editor'
@@ -23,7 +21,6 @@ module.exports = {
     ],
     devtool: "inline-source-map",
     entry: [
-        'webpack/hot/only-dev-server',
         './src/index.tsx'
     ],
     output: {
@@ -36,17 +33,10 @@ module.exports = {
             maxInitialRequests: Infinity,
             minSize: 0,
             cacheGroups: {
-                /*vendor: {
-                    test: /[\\/]node_modules[\\/]/,
-                    name(module) {
-                        const packageName = module.context.match(/[\\/]node_modules[\\/](.*?)([\\/]|$)/)[1];
-                        return `npm.${packageName.replace('@', '')}`;
-                    },
-                },*/
                 src: {
                     test: /[\\/]src[\\/]/,
                     name(module) {
-                        const src = module.context.split('/ui')[1].split('/').join('.').substr(1);
+                        const src = module.context.split('/').join('.').substr(1);
                         return `${src}`;
                     },
                 },
@@ -56,12 +46,27 @@ module.exports = {
     module: {
         rules: [
             {
-                test: /\.(tsx|ts|js)?$/,
-                loader: 'ts-loader',
-                exclude: /node_modules/
+                test: /\.(ts|tsx)$/,
+                enforce: 'pre',
+                use: [
+                    {
+                        loader: 'tslint-loader',
+                        options: {
+                            emitErrors: false,
+                        }
+                    }
+                ]
             },
             {
-                test: /\.scss$/,
+                test: /\.(tsx|ts|js|jsx)?$/,
+                loader: 'ts-loader',
+                exclude: /node_modules/,
+                options: {
+                    transpileOnly: true
+                }
+            },
+            {
+                test: /\.(scss|css)$/,
                 use: [
                     "style-loader?sourceMap", // creates style nodes from JS strings
                     "css-loader?sourceMap", // translates CSS into CommonJS
@@ -69,18 +74,22 @@ module.exports = {
                 ]
             },
             {
-                test: /\.(woff(2)?|ttf|eot|svg)(\?v=\d+\.\d+\.\d+)?$/,
+                test: /\.(woff(2)?|ttf|eot|svg|png|otf)(\?v=\d+\.\d+\.\d+)?$/,
                 use: [{
                     loader: 'file-loader',
                     options: {
                         name: '[name].[ext]',
-                        outputPath: 'fonts/'
+                        options: {
+                            // disable type checker - we will use it in fork plugin
+                            transpileOnly: true
+                        }
                     }
                 }]
             }
         ]
     },
     resolve: {
-        extensions: ['.ts', '.tsx', ".js", ".json"]
+        modules: [path.resolve(__dirname, './src'), 'node_modules'],
+        extensions: ['.ts', '.tsx', ".js", ".jsx"]
     },
 };
